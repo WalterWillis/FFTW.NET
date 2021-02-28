@@ -39,7 +39,9 @@ This library has been slightly modified to support ARM processors, specifically 
 This code was forked and is being used in a .Net Core program that uses the FFT functions to send a summary of accelerometer peaks via Telemetry for a RockSat-X project.
 
 On Raspberry Pi, the user will need to use:
+
 sudo apt-get install libfftw3-3
+
 sudo apt-get install libfftw3-dev
 
 The latter specifically has the files needed for this.
