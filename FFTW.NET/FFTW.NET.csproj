@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>ArgusMagnus</Authors>
     <Company />
     <Product />
@@ -29,6 +29,11 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="FftwInterop.g.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FftwInterop.tt</DependentUpon>
+    </Compile>
     <Compile Update="FftwInterop.g.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

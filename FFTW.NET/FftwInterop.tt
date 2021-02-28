@@ -12,6 +12,7 @@ License: Microsoft Reciprocal License (MS-RL)
 <# // ------------------------------------------------------ Code Start ------------------------------------------------------
 const string DllName32 = "libfftw3-3-x86";
 const string DllName64 = "libfftw3-3-x64";
+const string DllNameArm = "libfftw3-3-ARM";
 const string CallingConvention = "CallingConvention.Cdecl";
 
 string[] Imports = {
@@ -92,6 +93,9 @@ foreach (string import in Imports)
 		[DllImport("<#=DllName64#>", CallingConvention = <#=CallingConvention#>, EntryPoint = "<#=name#>")]<#=attributes#>
 		static extern <#=returnType#> <#=name#>_x64<#=argumentList#>;
 
+		[DllImport("<#=DllNameArm#>", CallingConvention = <#=CallingConvention#>, EntryPoint = "<#=name#>")]<#=attributes#>
+		static extern <#=returnType#> <#=name#>_ARM<#=argumentList#>;
+
 		public static <#=returnType#> <#=name#><#=argumentList#>
 		{
 <# // ------------------------------------------------------ Code Start ------------------------------------------------------
@@ -102,6 +106,8 @@ foreach (string import in Imports)
 				<#=name#>_x64(<#=args#>);
 			else if (RuntimeInformation.ProcessArchitecture == Architecture.X86)
 				<#=name#>_x86(<#=args#>);
+			else if (RuntimeInformation.ProcessArchitecture == Architecture.Arm)
+				<#=name#>_ARM(<#=args#>);
 			else
 				throw new PlatformNotSupportedException();
 <# // ------------------------------------------------------ Code Start ------------------------------------------------------
@@ -113,6 +119,8 @@ foreach (string import in Imports)
 				return <#=name#>_x64(<#=args#>);
 			else if (RuntimeInformation.ProcessArchitecture == Architecture.X86)
 				return <#=name#>_x86(<#=args#>);
+			else if (RuntimeInformation.ProcessArchitecture == Architecture.Arm)
+				return <#=name#>_ARM(<#=args#>);
 			else
 				throw new PlatformNotSupportedException();
 <# // ------------------------------------------------------ Code Start ------------------------------------------------------
