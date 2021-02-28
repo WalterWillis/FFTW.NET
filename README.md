@@ -33,3 +33,7 @@ implementing the IPinnedArray<T> interface.
 FFTW is licensed under the GNU GPL, therefore FFTW.NET as a whole adapts this license.
 However, if for some reason you want to use classes/code from this project
 without using FFTW, you are free to do so under the Microsoft Reciprocal License (MS-RL).
+
+## Modifications
+This library has been slightly modified to support ARM processors, specifically for the Raspberry Pi.
+This code was forked and is being used in a .Net Core program that uses the FFT functions to send a summary of accelerometer peaks via Telemetry for a RockSat-X project.
