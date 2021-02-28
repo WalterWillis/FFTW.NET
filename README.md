@@ -37,3 +37,11 @@ without using FFTW, you are free to do so under the Microsoft Reciprocal License
 ## Modifications
 This library has been slightly modified to support ARM processors, specifically for the Raspberry Pi.
 This code was forked and is being used in a .Net Core program that uses the FFT functions to send a summary of accelerometer peaks via Telemetry for a RockSat-X project.
+
+On Raspberry Pi, the user will need to use:
+sudo apt-get install libfftw3-3
+sudo apt-get install libfftw3-dev
+
+The latter specifically has the files needed for this.
+
+Merely build the project and copy the FFTW.NET.dll manually and use as a reference/dependency. Or just replace the one in your program with this one on the raspberry pi.
